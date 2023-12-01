@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="back"><a href="../index.html" id="opop">＜返回</a></div>
+		<h1 class="title">软件2107</h1>
+		<p class="tab">
+		    <button class="btn">点名</button>
+		</p>
+		<ul class="list">
+		
+		</ul>
+		<style>
+		#opop{
+		color: #2e6da4;			
+		}	
+		body,ul {
+			margin:0;
+			padding:0;
+		}
+		h1 {
+			text-align:center;
+		}
+		.tab {
+			width:1000px;
+			margin:0 auto;
+			text-align:center;
+		}
+		.btn {
+			padding:10px 20px;
+			margin:20px;
+		}
+		.list {
+			padding:30px;
+			border:1px solid skyblue;
+			width:1000px;
+			margin:0 auto;
+			text-align:center;
+		}
+		.list li {
+			display:inline-block;
+			width:110px;
+			height:45px;
+			margin:10px;
+			text-align:center;
+			line-height:45px;
+			border-radius:10px;
+			font-size:20px;
+			border:1px solid #2e6da4;
+			background-color:#337ab7;
+			color:#fff;
+		}
+		li:hover {
+			background-color:#286090;
+			border-color:#204d74;
+		}
+		li.active {
+			border-color:rgb(76,174,76);
+			background:rgb(92,184,92);
+			box-shadow:4px 4px 5px #666;
+		}
+		li.end {
+			border-color:red;
+			background:red;
+			box-shadow:4px 4px 5px #666;
+		}
+		</style>
+		<script>1
+var arr = ["吕琪琪","李锦涛","蔡天卫","丁俊乔","霍洪杰","杨磊","李汝琴","宁云朵","唐灿","刘承忠","伍海周","陈财","余东昌","李俊"
+,"吴世瑜","熊艳园","张艳平","郭锦浩","张帅","汤涛","王卓","严洪武","冯珍龙","谭祖航","聂天丰","朱诗豪","贾贵","陈堃领","杨树林"
+,"杨华祥","刘逍遥","刘俊威","张毅","付永康","赵灿","胡凯伦","张立","符浩","杨宇翔","黄军峰","孙莹莹","张健","任承志","黄伊悦"
+,"任鹏辉","何新宇","刘立尚","曹中旺","李林健","陈旭阳","米佳伟","朱义","陈金玲","余佳琪","杜俊龙","李浩","姚虎城"
+];
+var arrLen = arr.length;
+var lastArr = [];
+var oList = document.getElementsByClassName('list')[0];
+var oBtn = document.getElementsByClassName('btn')[0];
+var oActive = null;
+var index;
+var lastIndex;
+
+function init() {
+    var str = '';
+    arr.forEach(function(ele, index) {
+        str += '<li>' + ele + '</li>'
+    });
+    oList.innerHTML = str;
+}
+init();
+var timer = null;
+var flag = false;
+oBtn.onclick = function() {
+    if (lastArr.length == arrLen) {
+        alert('全班已点完，请重新开始');
+        return;
+    }
+    flag = !flag;
+    if (flag) {
+        oBtn.innerHTML = '停止';
+        timer = setInterval(function() {
+            lastIndex = index;
+            randomName();
+        }, 100);
+    } else {		
+        clearInterval(timer);
+        oActive.className = 'end';
+        lastArr.push(index);
+        oBtn.innerHTML = '点名';
+    }
+}
+
+function randomName() {
+    index = Math.floor(Math.random() * arrLen);
+    if (lastIndex == index) {
+        randomName();
+        return;
+    }
+    for (var i = 0; i < lastArr.length; i++) {
+        if (lastArr[i] == index) {
+            randomName();
+            return;
+        }
+    }
+    if (oActive) {
+        oActive.className = '';
+    }
+    oActive = oList.getElementsByTagName('li')[index];
+    oActive.className = 'active';
+}
+	//原创代码，禁止侵权，侵权必究
+</script>
+	<script src="../js/jquery.min.js"></script>
+    <script src="../js/su.js"></script>
+	<!-- 雪花特效 -->
+	<script src="../js/snowy.js"></script>
+	<style type="text/css">
+	.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}
+	</style>
+	<div class="snow-container"></div>
+	</body>
+</html>

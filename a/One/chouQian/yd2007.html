@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="back"><a href="../index.html" id="opop">＜返回</a></div>
+		<h1 class="title">移动通信2007</h1>
+		<p class="tab">
+		    <button class="btn">点名</button>
+		</p>
+		<ul class="list">
+		
+		</ul>
+		<style>
+		#opop{
+		color: #2e6da4;			
+		}	
+		a{
+			text-decoration:none			
+		}	
+		body,ul {
+			margin:0;
+			padding:0;
+		}
+		h1 {
+			text-align:center;
+		}
+		.tab {
+			width:1000px;
+			margin:0 auto;
+			text-align:center;
+		}
+		.btn {
+			padding:10px 20px;
+			margin:20px;
+		}
+		.list {
+			padding:30px;
+			border:1px solid skyblue;
+			width:1000px;
+			margin:0 auto;
+			text-align:center;
+		}
+		.list li {
+			display:inline-block;
+			width:110px;
+			height:45px;
+			margin:10px;
+			text-align:center;
+			line-height:45px;
+			border-radius:10px;
+			font-size:20px;
+			border:1px solid #2e6da4;
+			background-color:#337ab7;
+			color:#fff;
+		}
+		li:hover {
+			background-color:#286090;
+			border-color:#204d74;
+		}
+		li.active {
+			border-color:rgb(76,174,76);
+			background:rgb(92,184,92);
+			box-shadow:4px 4px 5px #666;
+		}
+		li.end {
+			border-color:red;
+			background:red;
+			box-shadow:4px 4px 5px #666;
+		}
+		</style>
+		<script>1
+var arr = ["王鑫","王秋珍","宋志昂","余浩博","王峰海","宋俊文","郭升旗","吴双柱","魏志豪","张海哲","李士鼎","侯志培","乔泽宁","贾豪森","贾统帅"
+,"韩晨坤","廖梅光","杨思哲","阿的张进","曾航","甘永辉","伍贤慧","胡建东","朱航","王尚伟","陈礼锋"
+,"刘传富","刘金","樊程虎","刘明阳","闫海杰","王熊博","邵会杰","常爽","刘忠玺","邵丹阳"
+,"赵勇胜","易帅志","汤雄","汪鑫睿","雷世立","张俊杰","李江华","杜桂林","王超","向莉莉","郝承芳","刘志","郭宏伟","王季雄","范宇","王猛","洪爽"
+,"阿不都"
+];
+var arrLen = arr.length;
+var lastArr = [];
+var oList = document.getElementsByClassName('list')[0];
+var oBtn = document.getElementsByClassName('btn')[0];
+var oActive = null;
+var index;
+var lastIndex;
+
+function init() {
+    var str = '';
+    arr.forEach(function(ele, index) {
+        str += '<li>' + ele + '</li>'
+    });
+    oList.innerHTML = str;
+}
+init();
+var timer = null;
+var flag = false;
+oBtn.onclick = function() {
+    if (lastArr.length == arrLen) {
+        alert('全班已点完，请重新开始');
+        return;
+    }
+    flag = !flag;
+    if (flag) {
+        oBtn.innerHTML = '停止';
+        timer = setInterval(function() {
+            lastIndex = index;
+            randomName();
+        }, 100);
+    } else {		
+        clearInterval(timer);
+        oActive.className = 'end';
+        lastArr.push(index);
+        oBtn.innerHTML = '点名';
+    }
+}
+
+function randomName() {
+    index = Math.floor(Math.random() * arrLen);
+    if (lastIndex == index) {
+        randomName();
+        return;
+    }
+    for (var i = 0; i < lastArr.length; i++) {
+        if (lastArr[i] == index) {
+            randomName();
+            return;
+        }
+    }
+    if (oActive) {
+        oActive.className = '';
+    }
+    oActive = oList.getElementsByTagName('li')[index];
+    oActive.className = 'active';
+}
+
+</script>
+		         <script src="../js/jquery.min.js"></script>
+         <script src="../js/su.js"></script>
+	<!-- 雪花特效 -->
+	<script src="../js/snowy.js"></script>
+	<style type="text/css">
+	.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}
+	</style>
+	<div class="snow-container"></div>
+	</body>
+</html>
