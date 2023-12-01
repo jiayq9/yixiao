@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>聊天</title>
+		<style>
+		*{
+			margin: 0;;
+		}
+		h1{
+			text-align: center;
+			background-color: aqua;
+			color: #FFFFFF;
+			line-height: 50px;
+		}
+		h2{
+			background-color: aqua;
+			color: #FFFFFF;
+			line-height: 10px;
+		}
+		#chuangkou{
+			border: 3px solid blue;
+			width: 890px;
+			height: 800px; 	
+		}		
+		#qr{
+			background-color: burlywood;
+		}
+		#qk{
+			background-color: #87CEEB;
+		}
+	    #fanhui{
+	    	width: 100px;
+	    	height: 50px;
+			font-size: 30px;
+	    }
+		.kuang{
+			padding: 40px;
+			font-size: 50px;
+		}
+		#qr{
+			width: 100px;
+			height: 70px;
+			font-size: 30px;
+		}
+		#qk{
+			width: 100px;
+			height: 70px;
+			font-size: 30px;
+		}
+		#tx{
+		    width: 650px;
+			height: 65px;
+			font-size: 30px;
+		}
+		</style>
+	</head>
+	<body>
+		<h2><button id="fanhui"><a href="index.html">返回</a></button></h2>
+		<h1 align="center">聊天机器人</h1>
+		<div class="kuang" id="chuangkou"></div>
+		<div class="kuang">
+		<input id="tx" type="text" />
+		<input id="qr" type="button" value="发送"/>
+		<input id="qk" type="button" value="清空"/>
+		</div>
+		<script>
+		//onload页面加载完后再执行，避免绑定不成功，元素获取不到
+		onload=function(){
+		var chuangkou=$("chuangkou");
+		var tx=$("tx");
+		var qr=$("qr");
+		var qk=$("qk"); 
+		//DOM0级时间，通过事件的绑定和接触
+		qr.onclick=function(){
+			if(tx.value.trim()==""){
+				alert("内容不能为空");
+				return;
+			}else{ 				
+				chuangkou.innerHTML+="我："+tx.value+"<br/>";
+				chuangkou.innerHTML+="人机 :"+tx.value+("吗？？")+"<br/>"				
+				tx.value="";
+			}
+		}
+		qk.onclick=function(){
+				chuangkou.innerHTML="";
+			}
+			//接受一个元素的id值，返回该元素
+		function $(id){
+			return document.getElementById(id);
+		} 
+		}
+				//原创代码，禁止侵权，侵权必究
+		</script>
+	</body>
+</html>

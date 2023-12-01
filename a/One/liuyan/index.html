@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;;
+		}
+		h1{
+			text-align: center;
+			background-color: dodgerblue;
+			color: #FFFFFF;
+			line-height: 100px;
+		}
+		button{
+		    width: 300px;
+		    height: 80px;
+			font-size: 30px;
+		} 
+		.kuang{ 
+			    width: 100%;
+				height: 150px;
+				line-height: 60px;
+				
+				/* 顶图文字背景颜色 */
+				background-image: linear-gradient(to top left,#25d8df , #CD69C9);
+				border-radius: 5px;
+				padding: 0px 10px;
+				/* bottom: -18px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				color: #282828;
+				font-size: 22px;
+				letter-spacing: 1px; */
+		}
+		.bg{
+			width: 100%;
+			height: 180px;
+			/* 关于本站顶部头图 */
+			background-image: url(bg.jpeg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
+		}
+		</style>
+	</head>
+	<body >
+		<h1>留言反馈</h1>
+		 <div class="bg"></div>
+		<p class="kuang">若有更好的建议或发现系统Bug可以在这里留言互动，
+		禁止留言任何广告、链接以及语言不当的话语。
+		  商务合作请点击底部联系方式进行咨询。</p>
+		<!--PC版-->
+		<div id="SOHUCS" sid="test"></div>
+		<script charset="utf-8" type="text/javascript" src="https://cy-cdn.kuaizhan.com/upload/changyan.js" ></script>
+		<script type="text/javascript">
+		window.changyan.api.config({
+		appid: 'cyvSdEU4G',
+		conf: 'prod_31040c757ed45d2c3fd5c0de1a83d866'
+		});
+		</script>
+	</body>
+</html>
