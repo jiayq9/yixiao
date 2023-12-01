@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;;
+			}
+			h1{
+				text-align: center;
+				background-color: aqua;
+				color: #FFFFFF;
+				line-height: 35px;
+			}
+			h2{
+				background-color: aqua;
+				color: #FFFFFF;
+				line-height: 25px;
+			}
+			input{			
+				width: 600px;
+			    height: 70px;
+				font-size: 40px;
+				text-align: center;			
+			}
+			p{
+			    text-align: center;	
+			    font-size: 30px;
+				
+			}
+			button{
+			    width: 300px;
+			    height: 80px;
+				font-size: 30px;
+			} 
+			#num3{
+				text-align: center;
+				font-size: 40px;
+				line-height: 3;
+				color: red;
+			}
+			#num33{
+				text-align: center;
+				font-size: 40px;
+				line-height: 3;
+				color: red;
+			}
+			.kuang{
+				text-align: center;
+				padding: 40px;
+			}
+			#denghao{
+				width: 600px;
+				height: 70px;
+			}
+			#opop{								
+				color: white;			
+			}
+			</style>
+		</head>
+		<body>
+			<script>
+			function show5(){
+				var num1=document.getElementById("num1");//第一个数字
+				var num2=document.getElementById("num2");//第二个数字
+				var num3=document.getElementById("num3");//第三个数字 
+			  for(var i=0;i<=Number(num1.value);i++){
+				  for(var j=0;j<=Number(num1.value);j++){
+					  if(i+j==Number(num1.value) && i*2+j*4==Number(num2.value)){ 						
+						num3.innerHTML="鸡的数量为"+i+","+"兔的数量为"+j;
+					  }
+				  }
+			  }	
+			  }
+					//原创代码，禁止侵权，侵权必究
+			</script>
+			<form>	
+			<h2 ><a href="../index.html"  id="opop">＜返回</a></h2>			
+			<h1>鸡兔同笼计算</h1>
+			<p>请输入头的数量</p>
+			<div class="kuang">
+			 	<input id="num1" type="text" value="78"/>
+			</div>
+			<p>请输入腿的数量</p>
+			<div class="kuang">
+			<input id="num2" type="text" value="200"/>
+			</div>
+			<div class="kuang">
+			<button id="denghao" type="button" onclick="show5();" >确认</button>
+			</div>
+			<div id="num3"></div>
+			</form>
+			<script>
+			function show6(){
+				var num11=document.getElementById("num11");//第一个数字
+				var num22=document.getElementById("num22");//第二个数字
+				var num3=document.getElementById("num33");//第三个数字
+			    var sum1=0; 
+			  for(var i=num11.value;i<=Number(num22.value);i++){
+				 sum1=Number(sum1)+i;			
+			  }
+				 num33.value=sum1;
+				 num33.innerHTML="从"+num11.value+"加到"+num22.value+"的结果为"+num33.value;
+			}
+					//原创代码，禁止侵权，侵权必究
+			</script>
+			<form>
+			<h1>数字累加计算</h1>
+			<p>请输入首位数字</p>
+			<div class="kuang">
+			 	<input id="num11" type="text" value="1"/>
+			</div>
+			<p>请输入末尾数字</p>
+			<div class="kuang">
+			<input id="num22" type="text" value="10"/>
+			</div>
+			<div class="kuang">
+			<button id="denghao" type="button" onclick="show6();" >确认</button>
+			</div>
+			<div id="num33"></div>
+			</form>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280809874'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1280809874%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+</html>
